@@ -1,5 +1,4 @@
 import pygame
-import math
 
 class Ball:
     def __init__(self, screen, x, y, radius):
@@ -22,13 +21,3 @@ class Ball:
         self.y = self.original_y
         self.x_vel *= -1
         self.y_vel = 0
-
-def bounce(ball, paddle):
-    relative_d = (paddle.y + 40) - ball.y
-    bounce_angle = (relative_d/40) * ((math.pi)/3)
-    if ball.x_vel < 0:
-        ball.x_vel = 8*math.cos(bounce_angle)
-        ball.y_vel = -8*math.sin(bounce_angle)
-    else:
-        ball.x_vel = -8*math.cos(bounce_angle)
-        ball.y_vel = -8*math.sin(bounce_angle)

@@ -1,7 +1,7 @@
 import pygame
 from paddle import Paddle
 from ball import Ball
-from game_logic import move_paddle, hit_paddle
+from game_logic import move_paddle, hit_paddle, bounce
 
 pygame.init()
 pygame.font.init()
@@ -38,10 +38,10 @@ def main():
         right_paddle.draw()
 
         key = pygame.key.get_pressed()
-        move_paddle(key, left_paddle, right_paddle, WIDTH, HEIGHT)
+        move_paddle(key, left_paddle, right_paddle, HEIGHT)
         ball.move()
 
-        hit_paddle(ball, left_paddle, right_paddle, WIDTH, HEIGHT)
+        hit_paddle(ball, left_paddle, right_paddle, HEIGHT)
 
         if ball.x <= 0:
             right_score += 1
